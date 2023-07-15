@@ -1,17 +1,18 @@
 package com.driver.model;
 
 import javax.persistence.*;
-import java.sql.Driver;
 
 @Entity
-public class TripBooking{
-
+public class TripBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tripBookingId;
-    private String fromLocation;
-    private String toLocation;
+
+    private String fromLocation; //The start location of the trip
+    private String toLocation; //The end location of the trip
     private int distanceInKm;
+
+    @Enumerated(value = EnumType.STRING)
     private TripStatus status;
     private int bill;
 
@@ -87,7 +88,3 @@ public class TripBooking{
         this.driver = driver;
     }
 }
-
-
-
-

@@ -1,20 +1,22 @@
 package com.driver.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Customer{
+public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
+
     private String mobile;
     private String password;
 
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    List<TripBooking> tripBookingList= new ArrayList<>();
+    List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Integer getCustomerId() {
         return customerId;

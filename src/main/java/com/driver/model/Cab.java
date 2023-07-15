@@ -1,16 +1,15 @@
 package com.driver.model;
 
 import javax.persistence.*;
-import java.sql.Driver;
 
 @Entity
-public class Cab{
+public class Cab {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private Integer perKmRate;
-    private boolean available;
+    private Boolean available;
 
     @OneToOne
     @JoinColumn
@@ -32,11 +31,11 @@ public class Cab{
         this.perKmRate = perKmRate;
     }
 
-    public boolean isAvailable() {
+    public Boolean getAvailable() {
         return available;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(Boolean available) {
         this.available = available;
     }
 

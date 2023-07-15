@@ -57,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
 		for(Driver driver1: allDrivers){
 
 			//Finding if they are available or not
-			if(driver1.getCab().isAvailable()== Boolean.TRUE) {
+			if(driver1.getCab().getAvailable()== Boolean.TRUE) {
 				if((driver == null) || (driver.getDriverId() > driver1.getDriverId())){
 					driver = driver1;
 				}
@@ -71,7 +71,7 @@ public class CustomerServiceImpl implements CustomerService {
 		//2. Set the attributes of the entity layer
 		Customer customer = customerRepository2.findById(customerId).get();
 		tripBooking.setCustomer(customer);
-		tripBooking.setDriver((java.sql.Driver) driver);
+		tripBooking.setDriver(driver);
 		driver.getCab().setAvailable(Boolean.FALSE);
 		tripBooking.setFromLocation(fromLocation);
 		tripBooking.setToLocation(toLocation);

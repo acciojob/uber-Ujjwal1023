@@ -4,10 +4,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Driver{
+@Entity
+public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer driverId;
+
     private String mobile;
     private String password;
 
@@ -15,7 +17,7 @@ public class Driver{
     private Cab cab;
 
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    List<TripBooking>tripBookingList=new ArrayList<>();
+    List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Integer getDriverId() {
         return driverId;
